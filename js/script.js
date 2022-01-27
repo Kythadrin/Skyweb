@@ -3,9 +3,9 @@ $(window).resize(function() {
         $(".menu_list").css("height", "100%");
     } else {
         $(".menu_list").css({
-                        "height" : "0",
-                        "transition" : "0s",
-                    });
+            "height" : "0",
+            "transition" : "0s",
+        });
     }
 });
 
@@ -14,7 +14,10 @@ $(document).ready(function() {
         let content = $("content");
         let menu = $(".menu_list");
 
-        menu.css("transition", "height 0.2s ease-out")
+        menu.toggleClass('visible');
+        menu.toggleClass('hidden');
+        content.toggleClass('navbar-opened');
+        content.toggleClass('navbar-closed');
 
         if (menu.css("height") == "200px") {
             menu.css({
@@ -35,16 +38,10 @@ $(document).ready(function() {
 
     $(".accordion").each( function() {
         $(this).on("click", function() {
-            $(this).toggleClass('active');
             $(this).toggleClass('deactive');
-            
-            let content = $(this).next();
-    
-            if (content.css("max-height") == "0px") {
-                content.css("max-height", content.prop('scrollHeight'));
-            } else {
-                content.css("max-height", "0");
-            }
+            $(this).toggleClass('active');
+            $(this).next().toggleClass('hidden');
+            $(this).next().toggleClass('visible');
         });
     });
 });

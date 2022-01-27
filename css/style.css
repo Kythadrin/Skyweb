@@ -117,6 +117,7 @@ header nav .menu_list {
   display: flex;
   flex-direction: row;
   flex: 1;
+  transition: 0.2s ease-out;
 }
 header nav .menu_list a {
   align-self: center;
@@ -360,25 +361,32 @@ content .description .about .accordion {
     font-size: 16px;
   }
 }
-content .description .about .active {
+content .description .about .accordion.active {
   border-color: orange;
   transition: border-color 0.2s linear;
 }
-content .description .about .active img {
+content .description .about .accordion.active img {
   transform: rotate(-180deg);
   transition: transform 0.2s linear;
 }
-content .description .about .deactive {
+content .description .about .accordion.deactive {
   border-color: lightgrey;
   transition: border-color 0.2s linear;
 }
-content .description .about .deactive img {
+content .description .about .accordion.deactive img {
   transform: rotate(0);
   transition: transform 0.2s linear;
 }
 content .description .about .content {
   margin: 20px;
   overflow: hidden;
+  height: auto;
+}
+content .description .about .content.visible {
+  max-height: 1000px;
+  transition: max-height 0.2s ease-in;
+}
+content .description .about .content.hidden {
   max-height: 0;
   transition: max-height 0.2s ease-out;
 }
