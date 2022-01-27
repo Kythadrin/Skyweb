@@ -22,22 +22,6 @@ a :hover {
   min-height: 100%;
 }
 
-.circle {
-  display: block;
-  border: 1px lightgrey solid;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  padding: 11px;
-}
-@media (max-width: 480px) {
-  .circle {
-    width: 30px;
-    height: 30px;
-    padding: 6px;
-  }
-}
-
 header {
   border-bottom: 1px lightgrey solid;
 }
@@ -279,6 +263,21 @@ content .description ul li p {
 }
 content .description ul li p b {
   font-weight: 600;
+}
+content .description ul li .circle {
+  display: block;
+  border: 1px lightgrey solid;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  padding: 11px;
+}
+@media (max-width: 480px) {
+  content .description ul li .circle {
+    width: 30px;
+    height: 30px;
+    padding: 6px;
+  }
 }
 @media (max-width: 767px) {
   content .description ul li {

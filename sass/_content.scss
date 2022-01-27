@@ -120,6 +120,21 @@ content {
                     }
                 }
 
+                .circle {
+                    display: block;
+                    border: 1px lightgrey solid;
+                    border-radius: 50%;
+                    width: 40px;
+                    height: 40px;
+                    padding: 11px;
+                
+                    @media (max-width: 480px) {
+                        width: 30px;
+                        height: 30px;
+                        padding: 6px;
+                    }
+                }
+
                 @media (max-width: 767px) {
                     padding: 4px 0;
                 }
