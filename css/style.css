@@ -11,6 +11,11 @@ html, body {
   height: 100%;
   display: flex;
   flex-direction: column;
+  font-family: "Questrial", sans-serif;
+}
+
+a :hover {
+  color: darkslategray;
 }
 
 .wrapper {
@@ -53,7 +58,9 @@ header .top * {
   font-size: 14px;
   margin-right: 10px;
   text-transform: uppercase;
-  font-family: "Questrial", sans-serif;
+}
+header .top * a:hover {
+  color: grey;
 }
 @media (max-width: 480px) {
   header .top * {
@@ -96,10 +103,13 @@ header nav .container {
 header nav .menu {
   display: none;
   cursor: pointer;
+  border: 0;
+  background-color: transparent;
 }
 @media (max-width: 767px) {
   header nav .menu {
-    display: block;
+    display: flex;
+    align-self: center;
   }
 }
 header nav .menu_list {
@@ -124,19 +134,23 @@ header nav .menu_list a {
 }
 @media (max-width: 767px) {
   header nav .menu_list {
-    display: none;
-    position: fixed;
+    position: absolute;
+    height: 0;
+    overflow: hidden;
     flex-direction: column;
     top: 105px;
     left: 0;
     background-color: white;
     width: 100%;
-    padding: 10px 0;
-    border-bottom: 1px grey solid;
+    border-bottom: 0;
   }
 }
 header nav .cart {
   margin-right: 30px;
+  transition: all 0.2s linear;
+}
+header nav .cart :active {
+  transform: scale(1.1);
 }
 @media (max-width: 767px) {
   header nav .cart {
@@ -150,6 +164,7 @@ content {
   padding: 20px 0;
   max-width: 1920px;
   margin: 0 auto;
+  transition: margin-top 0.2s ease-out;
 }
 content .product {
   display: flex;
@@ -184,7 +199,6 @@ content .image img {
 content .description {
   display: flex;
   flex-direction: column;
-  font-family: "Questrial", sans-serif;
   color: grey;
   max-width: 700px;
   margin-right: 15px;
@@ -275,7 +289,6 @@ content .description .cart-btn {
   height: 60px;
   background-color: #152B46;
   text-align: center;
-  font-family: "Questrial", sans-serif;
   color: white;
   font-size: 24px;
   font-weight: bold;
@@ -283,6 +296,15 @@ content .description .cart-btn {
   cursor: pointer;
   border: 0;
   border-radius: 2px;
+  transition: all 0.2s linear;
+}
+content .description .cart-btn:hover {
+  background-color: #0a1729;
+}
+content .description .cart-btn:active {
+  filter: brightness(1.5);
+  filter: blur(1px);
+  transform: scale(1.05);
 }
 @media (max-width: 991px) {
   content .description .cart-btn {
@@ -331,15 +353,34 @@ content .description .about .accordion {
   font-size: 20px;
   font-weight: 600;
   letter-spacing: 1px;
+  cursor: pointer;
 }
 @media (max-width: 1199px) {
   content .description .about .accordion {
     font-size: 16px;
   }
 }
-content .description .about .panel {
+content .description .about .active {
+  border-color: orange;
+  transition: border-color 0.2s linear;
+}
+content .description .about .active img {
+  transform: rotate(-180deg);
+  transition: transform 0.2s linear;
+}
+content .description .about .deactive {
+  border-color: lightgrey;
+  transition: border-color 0.2s linear;
+}
+content .description .about .deactive img {
+  transform: rotate(0);
+  transition: transform 0.2s linear;
+}
+content .description .about .content {
   margin: 20px;
-  display: none;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.2s ease-out;
 }
 
 /*# sourceMappingURL=style.css.map */

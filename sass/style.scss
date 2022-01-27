@@ -12,6 +12,13 @@ html, body {
     height: 100%;
     display: flex;
     flex-direction: column;
+    font-family: 'Questrial', sans-serif;
+}
+
+a {
+    :hover {
+        color: darkslategray;
+    }
 }
 
 .wrapper {
@@ -52,7 +59,10 @@ header {
             font-size: 14px;
             margin-right: 10px;
             text-transform: uppercase;
-            font-family: 'Questrial', sans-serif;
+            
+            a:hover {
+                color: grey;
+            }
 
             @media (max-width: 480px) {
                 font-size: 10px;
@@ -98,9 +108,12 @@ header {
         .menu {
             display: none;
             cursor: pointer;
+            border: 0;
+            background-color: transparent;
 
             @media (max-width: 767px) {
-                display: block;
+                display: flex;
+                align-self: center;
             }
         }
 
@@ -125,20 +138,25 @@ header {
             }
 
             @media (max-width: 767px) {
-                display: none;
-                position: fixed;
+                position: absolute;
+                height: 0;
+                overflow: hidden;
                 flex-direction: column;
                 top: 105px;
                 left: 0;
                 background-color: white;
                 width: 100%;
-                padding: 10px 0;
-                border-bottom: 1px grey solid;
+                border-bottom: 0;
             }
         }
 
         .cart {
             margin-right: 30px;
+            transition: all 0.2s linear;
+
+            :active {
+                transform: scale(1.1);
+            }
 
             @media (max-width: 767px) {
                 margin-right: 0;
@@ -153,6 +171,7 @@ content {
     padding: 20px 0;
     max-width: 1920px;
     margin: 0 auto;
+    transition: margin-top 0.2s ease-out;
 
     .product {
         display: flex;
@@ -187,7 +206,6 @@ content {
     .description {
         display: flex;
         flex-direction: column;
-        font-family: 'Questrial', sans-serif;
         color: grey;
         max-width: 700px;
         margin-right: 15px;
@@ -280,7 +298,6 @@ content {
             height: 60px;
             background-color: #152B46;
             text-align: center;
-            font-family: 'Questrial', sans-serif;
             color: white;
             font-size: 24px;
             font-weight: bold;
@@ -288,6 +305,17 @@ content {
             cursor: pointer;
             border: 0;
             border-radius: 2px;
+            transition: all 0.2s linear;
+
+            &:hover {
+                background-color: #0a1729;
+            }
+
+            &:active {
+                filter: brightness(1.5);
+                filter: blur(1px);
+                transform: scale(1.05);
+            }
 
             @media (max-width: 991px) {
                 width: 95%;
@@ -332,15 +360,38 @@ content {
                 font-size: 20px;
                 font-weight: 600;
                 letter-spacing: 1px;
+                cursor: pointer;
 
                 @media (max-width: 1199px) {
                     font-size: 16px;
                 }
             }
 
-            .panel {
+            .active {
+                border-color: orange;
+                transition: border-color 0.2s linear;
+
+                img {
+                    transform: rotate(-180deg);
+                    transition: transform 0.2s linear;
+                }
+            }
+
+            .deactive {
+                border-color: lightgrey;
+                transition: border-color 0.2s linear;
+                
+                img {
+                    transform: rotate(0);
+                    transition: transform 0.2s linear;
+                }
+            }
+
+            .content {
                 margin: 20px;
-                display: none;
+                overflow: hidden;
+                max-height: 0;
+                transition: max-height 0.2s ease-out;
             }
         }
     }
