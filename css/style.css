@@ -114,6 +114,7 @@ header nav .menu_list a {
 }
 @media (max-width: 767px) {
   header nav .menu_list a {
+    margin-left: 0;
     margin-top: 15px;
   }
 }
@@ -128,6 +129,10 @@ header nav .menu_list a {
     background-color: white;
     width: 100%;
     border-bottom: 0;
+  }
+  header nav .menu_list.visible {
+    height: 200px;
+    border-bottom: 1px grey solid;
   }
 }
 header nav .cart {
@@ -150,6 +155,9 @@ content {
   max-width: 1920px;
   margin: 0 auto;
   transition: margin-top 0.2s ease-out;
+}
+content.navbar-opened {
+  margin-top: 200px;
 }
 content .product {
   display: flex;
@@ -360,34 +368,23 @@ content .description .about .accordion {
     font-size: 16px;
   }
 }
+content .description .about .accordion img {
+  transition: transform 0.4s ease-out;
+}
 content .description .about .accordion.active {
   border-color: orange;
-  transition: border-color 0.2s linear;
 }
 content .description .about .accordion.active img {
   transform: rotate(-180deg);
-  transition: transform 0.2s linear;
-}
-content .description .about .accordion.deactive {
-  border-color: lightgrey;
-  transition: border-color 0.2s linear;
-}
-content .description .about .accordion.deactive img {
-  transform: rotate(0);
-  transition: transform 0.2s linear;
 }
 content .description .about .content {
   margin: 20px;
   overflow: hidden;
-  height: auto;
+  max-height: 0;
+  transition: max-height 0.4s ease-out;
 }
 content .description .about .content.visible {
-  max-height: 1000px;
-  transition: max-height 0.2s ease-in;
-}
-content .description .about .content.hidden {
-  max-height: 0;
-  transition: max-height 0.2s ease-out;
+  max-height: 400px;
 }
 
 /*# sourceMappingURL=style.css.map */

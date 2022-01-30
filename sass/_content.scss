@@ -6,6 +6,10 @@ content {
     margin: 0 auto;
     transition: margin-top .2s ease-out;
 
+    &.navbar-opened {
+        margin-top: 200px;
+    }
+
     .product {
         display: flex;
         margin: 0 auto;
@@ -214,23 +218,15 @@ content {
                     font-size: 16px;
                 }
 
+                img {
+                    transition: transform .4s ease-out;
+                }
+
                 &.active {
                     border-color: orange;
-                    transition: border-color .2s linear;
     
                     img {
                         transform: rotate(-180deg);
-                        transition: transform .2s linear;
-                    }
-                }
-
-                &.deactive {
-                    border-color: lightgrey;
-                    transition: border-color .2s linear;
-                    
-                    img {
-                        transform: rotate(0);
-                        transition: transform .2s linear;
                     }
                 }
             }
@@ -238,16 +234,11 @@ content {
             .content {
                 margin: 20px;
                 overflow: hidden;
-                height: auto;
+                max-height: 0;
+                transition: max-height .4s ease-out;
 
                 &.visible {
-                    max-height: 1000px;
-                    transition: max-height .2s ease-in;
-                }
-    
-                &.hidden {
-                    max-height: 0;
-                    transition: max-height .2s ease-out;
+                    max-height: 400px;
                 }
             }
         }
